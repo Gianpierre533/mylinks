@@ -12,53 +12,119 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background-color: #0f0f13;
   color: #ffffff;
-  min-height: 100vh;
+  min-height: 100vh; /* 2.4 Unidades relativas (vh) */
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1rem; /* 2.2 Base para usar rem */
+  line-height: 1.6;
 }
 
 /* --- TARJETA PRINCIPAL --- */
 .card {
-  width: 90%;
+  width: 90%; /* 2.3 Porcentajes para anchos */
   max-width: 400px;
   text-align: center;
-  padding: 40px 20px;
+  padding: 2.5rem 1.25rem; /* Convertido de px a rem */
+  margin: 0 auto;
 }
 
 /* --- FOTO DE PERFIL --- */
 .avatar {
   border-radius: 50%;
+  width: 100px;
+  height: 100px;
 }
 
 /* --- NOMBRE --- */
 .name {
-  font-size: 28px;
-  margin-top: 16px;
+  font-size: 1.75rem; /* Convertido de 28px a rem */
+  margin-top: 1rem; /* Convertido de 16px a rem */
+  margin-bottom: 0.5rem;
 }
 
 /* --- BIO --- */
 .bio {
-  font-size: 15px;
+  font-size: 1rem; /* Convertido a rem */
   color: #a0a0b0;
-  margin-top: 8px;
+  margin-top: 0.5rem;
+  line-height: 1.5;
 }
 
 /* --- CONTENEDOR DE ENLACES --- */
 .links {
-  margin-top: 24px;
+  margin-top: 1.5rem;
 }
 
 /* --- CADA ENLACE --- */
 .link {
   display: block;
-  padding: 14px;
-  margin-top: 12px;
+  width: 100%;
+  padding: 1rem; /* Convertido de 14px a rem */
+  margin-bottom: 1rem;
   border: 1px solid #2a2a38;
   color: #ffffff;
   text-decoration: none;
-  font-size: 15px;
+  font-size: 1rem; /* Convertido a rem */
+  border-radius: 0.5rem;
 }
+
+/* ========================================
+   RESPONSIVE: Tablets y Desktop (768px+)
+   ======================================== */
+@media (min-width: 768px) {
+  .card {
+    max-width: 500px;
+  }
+
+  .name {
+    font-size: 2.5rem;
+  }
+
+  .avatar {
+    width: 150px;
+    height: 150px;
+  }
+
+  .bio {
+    max-width: 400px;
+    margin: 0.5rem auto 0; /* Lo mantiene centrado */
+  }
+
+  .link {
+    margin-bottom: 1.25rem;
+    transition: transform 0.2s ease;
+  }
+
+  /* Efecto hover solo en desktop (móvil no tiene hover) */
+  .link:hover {
+    transform: scale(1.02);
+  }
+}
+
+/* ========================================
+   LOGROS ADICIONALES (OPCIONALES)
+   ======================================== */
+
+/* 🟢 Segundo Breakpoint (Pantallas muy grandes) */
+@media (min-width: 1200px) {
+  .card {
+    max-width: 600px;
+  }
+  .name {
+    font-size: 3rem;
+  }
+}
+
+/* 🟡 Orientación del Dispositivo (Landscape en celular) */
+@media (max-width: 767px) and (orientation: landscape) {
+  body {
+    align-items: flex-start; /* Evita que se corte arriba si la pantalla es muy bajita */
+    padding: 2rem 0;
+  }
+}
+
+/* 🔴 Tema Claro Automático (Tu base ya era oscura, así que invertimos a claro si el usuario lo prefiere) */
